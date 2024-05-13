@@ -12,7 +12,7 @@ function App() {
   );
 }
 
-const Cover = styled.div`
+const Cover = styled.div<{ themee: boolean }>`
   padding: 3.1rem 2.4rem 7.9rem 2.4rem;
   background: ${(props) => (props.themee ? "#F6F8FF" : "#141D2F")};
 `;

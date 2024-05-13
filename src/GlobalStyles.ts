@@ -11,6 +11,5 @@ html{
 }
 body{
     font-family: "Space Mono", monospace;
-
 }
 `;
