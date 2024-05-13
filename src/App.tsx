@@ -3,33 +3,17 @@ import search from "/assets/icon-search.svg";
 import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Picture from "./components/Picture";
-
-type Tdata = {
-  login: string;
-  id: number;
-  avatar_url: string;
-  company: string;
-  twitter_username: string;
-  blog: string;
-  following: number;
-  location: string;
-  followers: number;
-  public_repos: string;
-  bio: string;
-  created_at: string;
-  name: string;
-};
+import { Tdata } from "./components/types";
 
 function App() {
   const [themee, setThemee] = useState<boolean>(true);
-  // const [data, setData] = useState();
-  const apiFetch = async () => {
-    const res = await fetch(`https://api.github.com/users/octocat`);
+  const [data, setData] = useState<Tdata>({});
+  const [userAdress, setUserAdress] = useState<string>("");
+  const apiFetch = async (id: string) => {
+    const res = await fetch(`https://api.github.com/users/${id}`);
     const info = await res.json();
-    // setData(info);
-    console.log(info);
+    setData(info);
   };
-  apiFetch();
   return (
     <Cover themee={themee}>
       <Header themee={themee} setThemee={setThemee} />
