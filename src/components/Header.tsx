@@ -44,6 +44,7 @@ export default function Header({
 }
 const InputDiv = styled.div`
   position: relative;
+  margin-bottom: 1.6rem;
 `;
 const SearchDiv = styled.div`
   top: 0.7rem;
@@ -106,7 +107,7 @@ const Input = styled.input<{ themee: boolean }>`
     font-size: 13px;
     font-style: normal;
     font-weight: 400;
-    line-height: 25px; /* 192.308% */
+    line-height: 25px;
   }
 `;
 const Con = styled.div<{ themee: boolean }>`
