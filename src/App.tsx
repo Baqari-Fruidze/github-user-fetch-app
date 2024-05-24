@@ -23,14 +23,14 @@ function App() {
       <Header themee={themee} setThemee={setThemee} />
       <InfoMainCon themee={themee}>
         <Img src={data.avatar_url} alt="" />
-        <NickNameDateCon>
-          <LoginAndNameCon>
+        <NickNameDateCon themee={themee}>
+          <LoginAndNameCon themee={themee}>
             <span className="userName">{data.name}</span>
             <span className="userLogin">{data.login}</span>
           </LoginAndNameCon>
           <p>{data.created_at}</p>
         </NickNameDateCon>
-        <Para>
+        <Para themee={themee}>
           {data.bio === null
             ? "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros."
             : data.bio}
@@ -72,20 +72,20 @@ const ReposFolowersCon = styled.div<{ themee: boolean }>`
   grid-column-gap: 0px;
   grid-row-gap: 0px;
 `;
-const Para = styled.p`
+const Para = styled.p<{ themee: boolean }>`
   grid-column: 1/5;
-  color: #4b6a9b;
+  color: ${(props) => (props.themee ? "#4b6a9b" : "#fff")};
   font-family: "Space Mono";
   font-size: 13px;
   font-style: normal;
   font-weight: 400;
   line-height: 25px;
 `;
-const LoginAndNameCon = styled.div`
+const LoginAndNameCon = styled.div<{ themee: boolean }>`
   display: flex;
   flex-direction: column;
   .userName {
-    color: #2b3442;
+    color: ${(props) => (props.themee ? "#2b3442" : "#fff")};
     font-family: "Space Mono";
     font-size: 16px;
     font-style: normal;
@@ -101,13 +101,13 @@ const LoginAndNameCon = styled.div`
     line-height: normal;
   }
 `;
-const NickNameDateCon = styled.div`
+const NickNameDateCon = styled.div<{ themee: boolean }>`
   display: flex;
   flex-direction: column;
   justify-content: center;
   grid-column: 2/5;
   & > p {
-    color: #697c9a;
+    color: ${(props) => (props.themee ? "#697c9a" : "#fff")};
     font-family: "Space Mono";
     font-size: 13px;
     font-style: normal;
