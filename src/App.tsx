@@ -92,7 +92,7 @@ const VerticalTwo = styled.div`
   display: flex;
   flex-direction: column;
   @media (min-width: 48rem) {
-    grid-column: 3/5;
+    gap: 2rem;
   }
 `;
 const VerticalOne = styled.div`
@@ -100,7 +100,7 @@ const VerticalOne = styled.div`
   flex-direction: column;
   gap: 1.7rem;
   @media (min-width: 48rem) {
-    grid-column: 1/3;
+    gap: 2rem;
   }
 `;
 const MiniCons = styled.div<{ themee: boolean }>`
@@ -114,15 +114,22 @@ const MiniCons = styled.div<{ themee: boolean }>`
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    @media (min-width: 48rem) {
+      font-size: 15px;
+    }
   }
 `;
 const LocationBottomCon = styled.div`
-  grid-column: 1/4;
+  grid-column: 1/5;
   display: flex;
   flex-direction: column;
   gap: 1.7rem;
   @media (min-width: 48rem) {
     flex-direction: row;
+    gap: 6.5rem;
+  }
+  @media (min-width: 90rem) {
+    grid-column: 2/5;
   }
 `;
 const ReposCon = styled.div<{ themee: boolean }>`
@@ -131,6 +138,8 @@ const ReposCon = styled.div<{ themee: boolean }>`
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
+  @media (min-width: 90rem) {
+  }
   & > p {
     color: ${(props) => (props.themee ? "#4b6a9b" : "#fff")};
     text-align: center;
@@ -170,6 +179,10 @@ const ReposFolowersCon = styled.div<{ themee: boolean }>`
   @media (min-width: 48rem) {
     padding: 1.5rem 9.6rem 1.7rem 3.2rem;
   }
+  @media (min-width: 90rem) {
+    grid-column: 2/5;
+    margin-bottom: 2rem;
+  }
 `;
 const Para = styled.p<{ themee: boolean }>`
   grid-column: 1/5;
@@ -181,6 +194,9 @@ const Para = styled.p<{ themee: boolean }>`
   line-height: 25px;
   @media (min-width: 48rem) {
     font-size: 15px;
+  }
+  @media (min-width: 90rem) {
+    grid-column: 2/5;
   }
 `;
 const LoginAndNameCon = styled.div<{ themee: boolean }>`
@@ -214,6 +230,11 @@ const NickNameDateCon = styled.div<{ themee: boolean }>`
   flex-direction: column;
   justify-content: center;
   grid-column: 2/5;
+  @media (min-width: 90rem) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
   & > p {
     color: ${(props) => (props.themee ? "#697c9a" : "#fff")};
     font-family: "Space Mono";
@@ -236,6 +257,9 @@ const Img = styled.img`
     height: 11.7rem;
     margin-right: 4rem;
   }
+  @media (min-width: 90rem) {
+    margin-right: 3.5rem;
+  }
 `;
 const InfoMainCon = styled.div<{ themee: boolean }>`
   border-radius: 15px;
@@ -248,6 +272,10 @@ const InfoMainCon = styled.div<{ themee: boolean }>`
   grid-row-gap: 2.4rem;
   @media (min-width: 48rem) {
     padding: 4rem;
+    grid-row-gap: 1.6rem;
+  }
+  @media (min-width: 90rem) {
+    padding: 4.8rem;
   }
 `;
 const Cover = styled.div<{ themee: boolean }>`
@@ -256,6 +284,9 @@ const Cover = styled.div<{ themee: boolean }>`
   @media (min-width: 48rem) {
     padding: 14rem 9.8rem 0 9.7rem;
     min-height: 100vh;
+  }
+  @media (min-width: 90rem) {
+    padding: 14.4rem 35.5rem 17rem;
   }
 `;
 export default App;
