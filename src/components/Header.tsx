@@ -45,6 +45,9 @@ export default function Header({
 const InputDiv = styled.div`
   position: relative;
   margin-bottom: 1.6rem;
+  @media (min-width: 48rem) {
+    margin-bottom: 2.4rem;
+  }
 `;
 const SearchDiv = styled.div`
   top: 0.7rem;
@@ -64,6 +67,9 @@ const SearchDiv = styled.div`
   border-radius: 10px;
   background: #0079ff;
   position: absolute;
+  @media (min-width: 48rem) {
+    font-size: 16px;
+  }
 `;
 const Inside = styled.div`
   display: flex;
@@ -101,6 +107,10 @@ const Input = styled.input<{ themee: boolean }>`
   border-radius: 15px;
   background: ${(props) => (props.themee ? "#fff" : " #1E2A47")};
   box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.2);
+  @media (min-width: 48rem) {
+    padding: 2.6rem 1rem 2.6rem 8rem;
+    background-position: top 2rem left 3.2rem !important;
+  }
   &::placeholder {
     color: ${(props) => (props.themee ? "#4B6A9B" : "#FFF")};
     font-family: inherit;
@@ -108,6 +118,9 @@ const Input = styled.input<{ themee: boolean }>`
     font-style: normal;
     font-weight: 400;
     line-height: 25px;
+    @media (min-width: 48rem) {
+      font-size: 18px;
+    }
   }
 `;
 const Con = styled.div<{ themee: boolean }>`
@@ -115,6 +128,7 @@ const Con = styled.div<{ themee: boolean }>`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 3.5rem;
+
   & p {
     color: ${(props) => (props.themee ? "#222731" : "#fff")};
     font-family: "Space Mono";

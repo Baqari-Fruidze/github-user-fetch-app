@@ -53,36 +53,56 @@ function App() {
           </ReposCon>
         </ReposFolowersCon>
         <LocationBottomCon>
-          <MiniCons themee={themee}>
-            <img src={location} alt="" />
-            <p>{data.location}</p>
-          </MiniCons>
-          <MiniCons themee={themee}>
-            <img src={webSite} alt="" />
-            <p>{data.blog}</p>
-          </MiniCons>
-          <MiniCons themee={themee}>
-            <img src={twitter} alt="" />
-            {data.twitter_username === null ? (
-              <p>Not Available</p>
-            ) : (
-              <p>{data.twitter_username}</p>
-            )}
-          </MiniCons>
-          <MiniCons themee={themee}>
-            <img src={company} alt="" />
-            {data.company === null ? (
-              <p>Not Available</p>
-            ) : (
-              <p>{data.company}</p>
-            )}
-          </MiniCons>
+          <VerticalOne>
+            <MiniCons themee={themee}>
+              <img src={location} alt="" />
+              <p>{data.location}</p>
+            </MiniCons>
+            <MiniCons themee={themee}>
+              <img src={webSite} alt="" />
+              <p>{data.blog}</p>
+            </MiniCons>
+          </VerticalOne>
+          <VerticalTwo>
+            <MiniCons themee={themee}>
+              <img src={twitter} alt="" />
+              {data.twitter_username === null ? (
+                <p>Not Available</p>
+              ) : (
+                <p>{data.twitter_username}</p>
+              )}
+            </MiniCons>
+            <MiniCons themee={themee}>
+              <img src={company} alt="" />
+              {data.company === null ? (
+                <p>Not Available</p>
+              ) : (
+                <p>{data.company}</p>
+              )}
+            </MiniCons>
+          </VerticalTwo>
         </LocationBottomCon>
       </InfoMainCon>
     </Cover>
   );
 }
 
+const VerticalTwo = styled.div`
+  gap: 1.7rem;
+  display: flex;
+  flex-direction: column;
+  @media (min-width: 48rem) {
+    grid-column: 3/5;
+  }
+`;
+const VerticalOne = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1.7rem;
+  @media (min-width: 48rem) {
+    grid-column: 1/3;
+  }
+`;
 const MiniCons = styled.div<{ themee: boolean }>`
   align-items: center;
   display: flex;
@@ -101,6 +121,9 @@ const LocationBottomCon = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.7rem;
+  @media (min-width: 48rem) {
+    flex-direction: row;
+  }
 `;
 const ReposCon = styled.div<{ themee: boolean }>`
   align-items: center;
@@ -116,6 +139,9 @@ const ReposCon = styled.div<{ themee: boolean }>`
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    @media (min-width: 48rem) {
+      font-size: 13px;
+    }
   }
   & > span {
     color: ${(props) => (props.themee ? "#2b3442" : "#fff")};
@@ -126,6 +152,9 @@ const ReposCon = styled.div<{ themee: boolean }>`
     font-weight: 700;
     line-height: normal;
     text-transform: uppercase;
+    @media (min-width: 48rem) {
+      font-size: 22px;
+    }
   }
 `;
 const ReposFolowersCon = styled.div<{ themee: boolean }>`
@@ -138,6 +167,9 @@ const ReposFolowersCon = styled.div<{ themee: boolean }>`
   grid-template-rows: 1fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
+  @media (min-width: 48rem) {
+    padding: 1.5rem 9.6rem 1.7rem 3.2rem;
+  }
 `;
 const Para = styled.p<{ themee: boolean }>`
   grid-column: 1/5;
@@ -147,6 +179,9 @@ const Para = styled.p<{ themee: boolean }>`
   font-style: normal;
   font-weight: 400;
   line-height: 25px;
+  @media (min-width: 48rem) {
+    font-size: 15px;
+  }
 `;
 const LoginAndNameCon = styled.div<{ themee: boolean }>`
   display: flex;
@@ -158,6 +193,9 @@ const LoginAndNameCon = styled.div<{ themee: boolean }>`
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    @media (min-width: 48rem) {
+      font-size: 26px;
+    }
   }
   .userLogin {
     color: #0079ff;
@@ -166,6 +204,9 @@ const LoginAndNameCon = styled.div<{ themee: boolean }>`
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    @media (min-width: 48rem) {
+      font-size: 15px;
+    }
   }
 `;
 const NickNameDateCon = styled.div<{ themee: boolean }>`
@@ -180,6 +221,9 @@ const NickNameDateCon = styled.div<{ themee: boolean }>`
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    @media (min-width: 48rem) {
+      font-size: 15px;
+    }
   }
 `;
 const Img = styled.img`
@@ -187,6 +231,11 @@ const Img = styled.img`
   width: 7rem;
   height: 7rem;
   margin-right: 1.9rem;
+  @media (min-width: 48rem) {
+    width: 11.7rem;
+    height: 11.7rem;
+    margin-right: 4rem;
+  }
 `;
 const InfoMainCon = styled.div<{ themee: boolean }>`
   border-radius: 15px;
@@ -197,9 +246,16 @@ const InfoMainCon = styled.div<{ themee: boolean }>`
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 1fr);
   grid-row-gap: 2.4rem;
+  @media (min-width: 48rem) {
+    padding: 4rem;
+  }
 `;
 const Cover = styled.div<{ themee: boolean }>`
   padding: 3.1rem 2.4rem 7.9rem 2.4rem;
   background: ${(props) => (props.themee ? "#F6F8FF" : "#141D2F")};
+  @media (min-width: 48rem) {
+    padding: 14rem 9.8rem 0 9.7rem;
+    min-height: 100vh;
+  }
 `;
 export default App;
