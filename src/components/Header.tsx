@@ -8,9 +8,13 @@ import search from "/assets/icon-search.svg";
 export default function Header({
   themee,
   setThemee,
+  userAdress,
+  setUserAdress,
 }: {
   themee: boolean;
   setThemee: React.Dispatch<React.SetStateAction<boolean>>;
+  userAdress: string;
+  setUserAdress: React.Dispatch<React.SetStateAction<string>>;
 }) {
   const themeChanger = () => setThemee(!themee);
 
@@ -33,11 +37,14 @@ export default function Header({
       </Con>
       <InputDiv>
         <Input
+          name="userAdress"
           type="text"
           placeholder="Search GitHub username…"
           themee={themee}
         />
-        <SearchDiv>Search</SearchDiv>
+        <SearchDiv onClick={() => setUserAdress(Input.target.value)}>
+          Search
+        </SearchDiv>
       </InputDiv>
     </>
   );

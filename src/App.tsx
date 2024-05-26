@@ -20,10 +20,14 @@ function App() {
     const info = await res.json();
     setData(info);
   };
-  console.log(data);
   return (
     <Cover themee={themee}>
-      <Header themee={themee} setThemee={setThemee} />
+      <Header
+        themee={themee}
+        setThemee={setThemee}
+        userAdress={userAdress}
+        setUserAdress={setUserAdress}
+      />
       <InfoMainCon themee={themee}>
         <Img src={data.avatar_url} alt="" />
         <NickNameDateCon themee={themee}>
