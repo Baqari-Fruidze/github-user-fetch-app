@@ -11,5 +11,6 @@ html{
 }
 body{
     font-family: "Space Mono", monospace;
+    min-height: 100vh;
 }
 `;

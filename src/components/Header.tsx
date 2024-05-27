@@ -10,13 +10,23 @@ export default function Header({
   setThemee,
   userAdress,
   setUserAdress,
+  apiFetch,
 }: {
   themee: boolean;
   setThemee: React.Dispatch<React.SetStateAction<boolean>>;
   userAdress: string;
   setUserAdress: React.Dispatch<React.SetStateAction<string>>;
+  apiFetch: (id: string) => void;
 }) {
   const themeChanger = () => setThemee(!themee);
+  const handleChange = (event) => {
+    event.preventDefault();
+    setUserAdress(event.target.value);
+  };
+  const foo = () => {
+    apiFetch(userAdress);
+    setUserAdress("");
+  };
 
   return (
     <>
@@ -37,14 +47,14 @@ export default function Header({
       </Con>
       <InputDiv>
         <Input
+          onChange={handleChange}
+          value={userAdress}
           name="userAdress"
           type="text"
           placeholder="Search GitHub username…"
           themee={themee}
         />
-        <SearchDiv onClick={() => setUserAdress(Input.target.value)}>
-          Search
-        </SearchDiv>
+        <SearchDiv onClick={foo}>Search</SearchDiv>
       </InputDiv>
     </>
   );
@@ -77,6 +87,10 @@ const SearchDiv = styled.div`
   @media (min-width: 48rem) {
     font-size: 16px;
   }
+  @media (min-width: 48rem) {
+    top: 1.3rem;
+    right: 1rem;
+  }
 `;
 const Inside = styled.div`
   display: flex;
@@ -104,6 +118,7 @@ const Inside = styled.div`
 `;
 
 const Input = styled.input<{ themee: boolean }>`
+  font-size: 13px;
   font-family: space-mono;
   background-image: url(${search}) !important;
   background-repeat: no-repeat !important;
@@ -115,6 +130,7 @@ const Input = styled.input<{ themee: boolean }>`
   background: ${(props) => (props.themee ? "#fff" : " #1E2A47")};
   box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.2);
   @media (min-width: 48rem) {
+    font-size: 18px;
     padding: 2.6rem 1rem 2.6rem 8rem;
     background-position: top 2rem left 3.2rem !important;
   }

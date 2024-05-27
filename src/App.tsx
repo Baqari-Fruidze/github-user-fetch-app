@@ -20,6 +20,7 @@ function App() {
     const info = await res.json();
     setData(info);
   };
+  console.log(data);
   return (
     <Cover themee={themee}>
       <Header
@@ -27,6 +28,7 @@ function App() {
         setThemee={setThemee}
         userAdress={userAdress}
         setUserAdress={setUserAdress}
+        apiFetch={apiFetch}
       />
       <InfoMainCon themee={themee}>
         <Img src={data.avatar_url} alt="" />
@@ -60,11 +62,15 @@ function App() {
           <VerticalOne>
             <MiniCons themee={themee}>
               <img src={location} alt="" />
-              <p>{data.location}</p>
+              {data.location === null ? (
+                <p>Not Avaiable</p>
+              ) : (
+                <p>{data.location}</p>
+              )}
             </MiniCons>
             <MiniCons themee={themee}>
               <img src={webSite} alt="" />
-              <p>{data.blog}</p>
+              {data.blog === "" ? <p>Not Available</p> : <p>{data.blog}</p>}
             </MiniCons>
           </VerticalOne>
           <VerticalTwo>
@@ -130,7 +136,7 @@ const LocationBottomCon = styled.div`
   gap: 1.7rem;
   @media (min-width: 48rem) {
     flex-direction: row;
-    gap: 6.5rem;
+    gap: 20%;
   }
   @media (min-width: 90rem) {
     grid-column: 2/5;
@@ -255,14 +261,12 @@ const Img = styled.img`
   border-radius: 50%;
   width: 7rem;
   height: 7rem;
-  margin-right: 1.9rem;
+  margin-right: auto;
   @media (min-width: 48rem) {
     width: 11.7rem;
     height: 11.7rem;
-    margin-right: 4rem;
   }
   @media (min-width: 90rem) {
-    margin-right: 3.5rem;
   }
 `;
 const InfoMainCon = styled.div<{ themee: boolean }>`
